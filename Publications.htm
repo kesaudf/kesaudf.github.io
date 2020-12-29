@@ -789,7 +789,21 @@
 
                 <h3 id="Google-publications">Revit.Views</h3>
                 <ul>
-
+                    <li>
+                        <em>Image Views from videocameras</em>.<br>The app allow to create an image views from selected videocameras from file.
+                        <details>
+                            <summary>Video</summary>
+                            <div id="ImageCameras">Loading player...</div>
+                            <script type="text/javascript">
+                                jwplayer("ImageCameras").setup({
+                                    file: "Video_Source/ImageCameras.mp4",
+                                    width: 400,
+                                    height: 240,
+                                    title: "Image Views from videocameras"
+                                });
+                            </script>
+                        </details>
+                    </li>
                     <li>
                         <em>Clip views by selection</em>.<br>The app allow to clip views by selection.
                         <details>
