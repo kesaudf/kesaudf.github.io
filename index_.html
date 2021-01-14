@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Alexey Zvonarev | Let's get inspiration from programming together</title>
+    <meta name="description" content="Let's get inspiration from programming together.Tools that optimize your workflows.">
+    <meta name="robots" content="all">
+    <meta name="author" content="Alexey Zvonarev">
+
+    <link rel="canonical" href="https://kesaudf.github.io/">
+    <link rel="dns-prefetch" href="https://kesaudf.github.io/">
+    <link rel="stylesheet" href="js/home.css">
+
+    <script async="" src="js/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-143828258-1');
+    </script>
+  </head>
+  <body class="false">
+    <script>
+           document.body.className = localStorage.getItem('darkmode') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('lightmode'))
+       </script>
+       <div id="HomePage">
+               <div class="left">
+                   <a href="https://lm2.me/posts">
+                       <img id="MainImage" src="js/portfolio.png" alt="" style="opacity: 1;">
+                   </a>
+               </div>
+               <div class="right">
+                   <div class="top-right">
+                       <a href="https://lm2.me/portfolio">
+                           <img id="PortfolioImage" src="js/BlogNews.jpg" alt="" style="opacity: 1;">
+                       </a>
+                   </div>
+                   <div class="bottom-right">
+                       <a href="https://lm2.me/about">
+                           <img id="AboutImage" src="js/me.jpg" alt="" style="opacity: 1;">
+                       </a>
+                   </div>
+               </div>
+           </div>
+
+        <script>
+        (function onMainLoad () {
+            const mainImage = document.getElementById('MainImage');
+            const portfolioImage = document.getElementById('PortfolioImage');
+            const aboutImage = document.getElementById('AboutImage');
+            const titleContent = document.getElementById('TitleContent');
+            function checkImg (img) {
+                if (img.complete) {
+                    img.style.opacity = 1
+                    return
+                }
+                setTimeout(() => checkImg(img), 100)
+            }
+            checkImg(mainImage)
+            checkImg(portfolioImage)
+            checkImg(aboutImage)
+
+            setTimeout(() => {
+                titleContent.style.opacity = 1
+            }, 100)
+        })()
+    </script>
+
+  </body>
+</html>
