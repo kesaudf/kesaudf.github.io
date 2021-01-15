@@ -1,1 +1,152 @@
-@font-face{font-family:Dosis;font-style:normal;font-weight:700;font-display:swap;src:url(/public/fonts/Dosis/Dosis-Bold.ttf) format('truetype');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0}#TitleContent{position:absolute;top:0;left:18px;opacity:0;transition:opacity .5s}h1.title{color:#000;font-family:Dosis,calibri,sans-serif;font-size:24pt;text-align:left;margin-bottom:9px}h2.title{color:#000;font-family:Dosis,sans-serif;font-size:16pt;text-align:left;margin:9px 0 27px}#HomePage{height:100%;width:100%;display:flex;flex-direction:row}#HomePage .left{width:calc(100% - 50vh);background-color:#ffdb14}#HomePage .left>a{height:100%;width:100%;display:flex;justify-content:center;align-items:center;cursor:default}#HomePage .right{display:flex;flex-direction:column}#HomePage .top-right{background-color:#e88683;height:50vh;width:50vh}#HomePage .bottom-right{background-color:#fad67b;height:50vh;width:50vh}#HomePage .bottom-right>a,#HomePage .top-right>a{height:100%;width:100%;display:flex;justify-content:center;align-items:center;overflow:hidden}#MainImage{opacity:0;transition:transform .2s,opacity .8s;cursor:pointer}#MainImage:hover{transform:scale(.8)}#MainImage{height:auto;width:auto;max-height:100vh;max-width:100%}#PortfolioImage{width:140%;height:140%;opacity:0;transition:height .2s,width .2s,opacity .8s;cursor:pointer}#AboutImage{height:100%;width:100%;opacity:0;transition:height .2s,width .2s,opacity .8s;cursor:pointer}#PortfolioImage:hover{height:100%;width:100%}#AboutImage:hover{height:80%;width:80%}@media (orientation:portrait){body{overflow-x:hidden;overflow-y:auto}#HomePage{flex-direction:column}#HomePage .left{height:100vw;width:100vw}#HomePage .top-right{height:100vw;width:100vw}#HomePage .bottom-right{height:100vw;width:100vw}}
+@font-face {
+  font-family: calibri;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/public/fonts/Dosis/Dosis-Bold.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+
+body {
+  margin: 0
+}
+
+#TitleContent {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  opacity: 0;
+  transition: opacity .5s
+}
+
+h1.title {
+  color: #000;
+  font-family: Dosis, calibri, sans-serif;
+  font-size: 24pt;
+  text-align: left;
+  margin-bottom: 9px
+}
+
+h2.title {
+  color: #000;
+  font-family: Dosis, sans-serif;
+  font-size: 16pt;
+  text-align: left;
+  margin: 9px 0 27px
+}
+
+#HomePage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row
+}
+
+#HomePage .left {
+  width: calc(100% - 50vh);
+  background-color: #ffdb14
+}
+
+#HomePage .left>a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default
+}
+
+#HomePage .right {
+  display: flex;
+  flex-direction: column
+}
+
+#HomePage .top-right {
+  background-color: #e88683;
+  height: 50vh;
+  width: 50vh
+}
+
+#HomePage .bottom-right {
+  background-color: #fad67b;
+  height: 50vh;
+  width: 50vh
+}
+
+#HomePage .bottom-right>a, #HomePage .top-right>a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+#MainImage {
+  opacity: 0;
+  transition: transform .2s, opacity .8s;
+  cursor: pointer
+}
+
+#MainImage:hover {
+  transform: scale(.8)
+}
+
+#MainImage {
+  height: auto;
+  width: auto;
+  max-height: 100vh;
+  max-width: 100%
+}
+
+#PortfolioImage {
+  width: 140%;
+  height: 140%;
+  opacity: 0;
+  transition: height .2s, width .2s, opacity .8s;
+  cursor: pointer
+}
+
+#AboutImage {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: height .2s, width .2s, opacity .8s;
+  cursor: pointer
+}
+
+#PortfolioImage:hover {
+  height: 100%;
+  width: 100%
+}
+
+#AboutImage:hover {
+  height: 80%;
+  width: 80%
+}
+
+@media (orientation:portrait) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto
+  }
+
+  #HomePage {
+    flex-direction: column
+  }
+
+  #HomePage .left {
+    height: 100vw;
+    width: 100vw
+  }
+
+  #HomePage .top-right {
+    height: 100vw;
+    width: 100vw
+  }
+
+  #HomePage .bottom-right {
+    height: 100vw;
+    width: 100vw
+  }
+}
