@@ -5525,7 +5525,7 @@ body:not(.event-like-and-share-buttons) .event-meta-socialicon-container {
 }
 
 #productList .product .product-image .intrinsic {
-  padding-bottom: 50%;
+  padding-bottom: 100%;
   line-height: 0;
   position: relative;
   overflow: hidden
@@ -17328,7 +17328,7 @@ nav ul, nav ol {
 
 #projectThumbs .project {
   float: left;
-  margin-left: 15px;
+  margin-left: .99009901%;
   margin-top: 1%;
   width: 24.00990099%;
   cursor: pointer;
