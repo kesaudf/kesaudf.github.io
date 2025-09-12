@@ -1,39 +1,363 @@
-﻿<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/Images/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AZ - Portfolio</title>
-    <meta name="description" content="Senior Software Development Engineer at Autodesk - Portfolio showcasing applications and projects" />
-    <meta name="author" content="AZ" />
-    
-    <!-- Preconnect to external domains for better performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Modern font loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#007bff">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="AZ Portfolio">
-    <link rel="apple-touch-icon" href="/Images/ForIcon.png">
-    
-    <!-- Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12554873-1"></script>
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.ico" />
+    <title>AZ</title>
+    <meta name="author" content="AZ">
+    <script async="" src="AZ_files/analytics.js"></script>
+    <script async="" src="AZ_files/mypersonal.js"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-12554873-1');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-12554873-1', 'auto');
+        ga('send', 'pageview');
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="AZ_files/all.css">
+    <link rel="stylesheet" href="AZ_files/css_002.css">
+    <link rel="stylesheet" href="AZ_files/css.css">
+    <link rel="stylesheet" href="AZ_files/bootstrap-social.css">
+    <link rel="stylesheet" href="AZ_files/main.css">
+   <link rel="stylesheet" type="text/css" href="NewCSS/site.css">
+   <link rel="stylesheet" type="text/css" href="mobile-fix.css">
+</head>
+
+                <body>
+
+
+
+                    <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-custom">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="main-navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="News.html">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="AboutMe.html">About Me</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Contacts.html">Contacts</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="avatar-container">
+                            <div class="avatar-img-border">
+                                <img alt="Navbar avatar" class="avatar-img" src="AZ_files/badge.jpg">
+                            </div>
+                        </div>
+                    </nav>
+                    <header class="header-section">
+                    </header>
+
+
+
+                    <section id="page" role="main" data-content-field="main-content" class="main-content-section">
+                        <div id="projectThumbs">
+                            <div class="wrapper">
+
+                                <a class="project" href="revit.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img class="project-image-responsive" data-image-resolution="500w" src="Images/rvt.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a class="project" href="autocad.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img class="project-image-responsive" data-image-resolution="500w" src="Images/autocad.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a class="project" href="bim360.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img class="project-image-responsive" data-image-resolution="500w" src="Images/bim360.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a class="project" href="Inventor.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img class="project-image-responsive" data-image-resolution="500w" src="Images/inventor.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a class="project" href="Unity.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/unity.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="project" href="Unreal.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/unreal.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="project" href="DesktopApps.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/DesktopApp.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="project" href="GoogleDrive.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/googleDrive.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a class="project" href="Word.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/word.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a class="project" href="PDF.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/pdf.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="project" href="UWP.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/UWP.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="project" href="Android.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/Android.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                              
+
+                            </div>
+                        </div>
+                    </section>
+                    <section id="page" role="main" data-content-field="main-content" class="main-content-section">
+                        <div id="projectThumbs">
+                            <div class="wrapper">
+
+                                <a class="project" href="AspNetCore.html">
+                                    <div>
+                                        <div class="intrinsic">
+                                            <div class="content-fill" style="overflow: hidden;">
+                                                <img                                                      class="project-image-responsive" data-image-resolution="500w" src="Images/AspNetCore.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer>
+                        <div class="container-md beautiful-jekyll-footer">
+                            <div class="row">
+                                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+                                    <p class="copyright text-muted">
+
+                                        AZ
+                                        &nbsp;•&nbsp;
+
+                                        2021
+
+
+                                        &nbsp;•&nbsp;
+                                        <a href="https://kesaudf.github.io/" target="_blank">kesaudf.github.io</a>
+                                        &nbsp;•&nbsp;
+                                        <a href="mailto:alexapperwelt@mail.com">e-mail</a>
+                                        &nbsp;•&nbsp;
+                                        <a href="https://t.me/AlexApperwelt" target="_blank">telegram</a>
+
+
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+                    <script src="AZ_files/main.js"></script>
+                    
+    <!-- Enhanced scroll functionality and navbar toggle fix -->
+    <script>
+        $(document).ready(function() {
+            var $navbar = $('.navbar-custom');
+            var $avatar = $('.avatar-container');
+            var $navbarToggler = $('.navbar-toggler');
+            var $navbarCollapse = $('.navbar-collapse');
+            var scrollThreshold = 50; // Pixels to scroll before hiding avatar
+            
+            function checkScroll() {
+                var scrollTop = $(window).scrollTop();
+                
+                if (scrollTop > scrollThreshold) {
+                    // Hide avatar when scrolled down
+                    $navbar.addClass("top-nav-short");
+                } else {
+                    // Show avatar when at top
+                    $navbar.removeClass("top-nav-short");
+                }
+            }
+            
+            // Bind scroll event with throttling for better performance
+            var scrollTimer = null;
+            $(window).scroll(function() {
+                if (scrollTimer) {
+                    clearTimeout(scrollTimer);
+                }
+                scrollTimer = setTimeout(checkScroll, 10); // Throttle to 100fps
+            });
+            
+            // Initial check
+            checkScroll();
+            
+            // Ensure avatar is visible on page load
+            $avatar.css('opacity', '1').css('visibility', 'visible');
+            
+            // Ensure navbar toggle icon is visible on page load
+            $('.navbar-toggler-icon').css({
+                'display': 'block',
+                'opacity': '1',
+                'visibility': 'visible',
+                'width': '24px',
+                'height': '24px'
+            });
+            
+            // Enhanced navbar toggle functionality with improved icon handling
+            $navbarToggler.on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var isCollapsed = !$navbarCollapse.hasClass('show');
+                console.log('Toggle clicked, currently collapsed:', isCollapsed);
+                
+                // Ensure toggle icon is visible
+                var $togglerIcon = $(this).find('.navbar-toggler-icon');
+                $togglerIcon.css({
+                    'display': 'block',
+                    'opacity': '1',
+                    'visibility': 'visible'
+                });
+                
+                if (isCollapsed) {
+                    // Show the menu
+                    $navbarCollapse.addClass('show');
+                    $navbar.addClass('top-nav-expanded');
+                    $(this).attr('aria-expanded', 'true');
+                    console.log('Menu opened');
+                } else {
+                    // Hide the menu
+                    $navbarCollapse.removeClass('show');
+                    $navbar.removeClass('top-nav-expanded');
+                    $(this).attr('aria-expanded', 'false');
+                    console.log('Menu closed');
+                }
+                
+                // Force a reflow to ensure CSS changes take effect
+                $navbarCollapse[0].offsetHeight;
+            });
+            
+            // Close mobile menu when clicking on nav links
+            $('.navbar-nav .nav-link').on('click', function() {
+                if ($(window).width() < 768 && $navbarCollapse.hasClass('show')) {
+                    $navbarCollapse.removeClass('show');
+                    $navbar.removeClass('top-nav-expanded');
+                    $navbarToggler.attr('aria-expanded', 'false');
+                    console.log('Menu closed via nav link click');
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            $(document).on('click', function(e) {
+                if ($(window).width() < 768 && 
+                    !$(e.target).closest('.navbar').length && 
+                    $navbarCollapse.hasClass('show')) {
+                    $navbarCollapse.removeClass('show');
+                    $navbar.removeClass('top-nav-expanded');
+                    $navbarToggler.attr('aria-expanded', 'false');
+                    console.log('Menu closed via outside click');
+                }
+            });
+            
+            // Handle window resize
+            $(window).on('resize', function() {
+                var windowWidth = $(window).width();
+                console.log('Window resized to:', windowWidth);
+                
+                if (windowWidth >= 768) {
+                    // Desktop view - ensure menu is visible and remove mobile classes
+                    $navbarCollapse.removeClass('show');
+                    $navbar.removeClass('top-nav-expanded');
+                    $navbarToggler.attr('aria-expanded', 'false');
+                    console.log('Switched to desktop view');
+                } else {
+                    console.log('Switched to mobile view');
+                }
+            });
+            
+            // Debug: Log current state
+            console.log('Navbar toggle initialized');
+            console.log('Window width:', $(window).width());
+            console.log('Toggler visible:', $navbarToggler.is(':visible'));
+            console.log('Collapse visible:', $navbarCollapse.is(':visible'));
+        });
+    </script>
+
+                </body></html>
