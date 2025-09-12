@@ -1,0 +1,209 @@
+.video-player {
+  position: relative;
+  background: #000;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease;
+}
+
+.video-player:hover {
+  transform: translateY(-2px);
+}
+
+.video-player__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.video-player__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  color: white;
+  font-size: var(--font-size-sm);
+}
+
+.video-player__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.video-player__error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+.video-player--error {
+  background: #333;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-player__controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+  transition: opacity 0.3s ease;
+}
+
+.video-player__controls--visible {
+  opacity: 1;
+}
+
+.video-player__progress-container {
+  margin-bottom: var(--spacing-sm);
+  cursor: pointer;
+}
+
+.video-player__progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.video-player__progress-fill {
+  height: 100%;
+  background: var(--primary-color);
+  transition: width 0.1s ease;
+}
+
+.video-player__control-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.video-player__button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.video-player__button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.video-player__time {
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.video-player__spacer {
+  flex: 1;
+}
+
+.video-player__title {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  right: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-player:hover .video-player__title {
+  opacity: 1;
+}
+
+.video-player__title h3 {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .video-player__controls {
+    padding: var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
+  }
+
+  .video-player__button {
+    padding: var(--spacing-sm);
+  }
+
+  .video-player__time {
+    font-size: var(--font-size-xs);
+    min-width: 70px;
+  }
+
+  .video-player__title {
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    right: var(--spacing-sm);
+    opacity: 1; /* Always show on mobile */
+  }
+
+  .video-player__title h3 {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Accessibility */
+.video-player__button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .video-player,
+  .video-player__controls,
+  .video-player__progress-fill,
+  .video-player__title {
+    transition: none;
+  }
+
+  .video-player:hover {
+    transform: none;
+  }
+
+  .video-player__spinner {
+    animation: none;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
