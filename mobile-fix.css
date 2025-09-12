@@ -1,0 +1,1003 @@
+/* Mobile Scaling Fixes for AZ Portfolio Site */
+
+/* Default styles for main content sections */
+.main-content-section {
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+/* ENHANCED RESPONSIVE IMAGE SYSTEM - Proportional scaling for all devices */
+
+/* Base responsive image class */
+.project-image-responsive {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+}
+
+/* PROPORTIONAL SCALING SYSTEM - Responsive image sizing */
+
+/* Extra Large screens - Optimal quality */
+@media (min-width: 1400px) {
+  .project-image-responsive {
+    object-fit: cover;
+    transform: scale(1.0);
+  }
+  
+  #projectThumbs .project {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+}
+
+/* Large desktop - Standard scaling */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .project-image-responsive {
+    object-fit: cover;
+    transform: scale(1.0);
+  }
+  
+  #projectThumbs .project {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+}
+
+/* Medium desktop - Minimized window optimization */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .project-image-responsive {
+    object-fit: cover;
+    transform: scale(1.0);
+  }
+  
+  #projectThumbs .project {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+}
+
+/* Tablet - Adaptive scaling */
+@media (min-width: 768px) and (max-width: 991px) {
+  .project-image-responsive {
+    object-fit: cover;
+    transform: scale(1.0);
+  }
+  
+  #projectThumbs .project {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+}
+
+/* Small desktop/Large mobile - Enhanced proportions */
+@media (min-width: 576px) and (max-width: 767px) {
+  .project-image-responsive {
+    object-fit: cover;
+    transform: scale(1.0);
+  }
+  
+  #projectThumbs .project {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+}
+
+/* Mobile - Optimized for small screens */
+@media (max-width: 575px) {
+  .project-image-responsive {
+    object-fit: cover;
+    transform: scale(1.0);
+  }
+  
+  #projectThumbs .project {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+}
+
+/* DEVICE-SPECIFIC OPTIMIZATIONS */
+
+/* High-DPI displays (Retina, etc.) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .project-image-responsive {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-width: 991px) {
+  #projectThumbs .project .intrinsic {
+    padding-bottom: 80% !important; /* Slightly rectangular for landscape */
+  }
+}
+
+/* Portrait orientation - maintain square */
+@media (orientation: portrait) {
+  #projectThumbs .project .intrinsic {
+    padding-bottom: 100% !important; /* Perfect square for portrait */
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  #projectThumbs .project:hover .content-fill img,
+  #projectThumbs .project:hover img.project-image-responsive {
+    transform: translate(-50%, -50%) !important; /* Disable hover effects on touch devices */
+  }
+  
+  #projectThumbs .project:active .content-fill img,
+  #projectThumbs .project:active img.project-image-responsive {
+    transform: translate(-50%, -50%) scale(0.98) !important; /* Touch feedback */
+  }
+}
+
+/* UNIVERSAL FIXES - Override site.css for ALL screen sizes and platforms */
+
+/* Fix the problematic wrapper that causes truncation */
+#projectThumbs > .wrapper {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Universal project container fixes - works on ALL platforms */
+#projectThumbs .project {
+  float: left !important;
+  margin: 0.5% !important;
+  cursor: pointer !important;
+  position: relative !important;
+  -webkit-transform: none !important;
+}
+
+/* Universal image container fixes */
+#projectThumbs .project .content-fill {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  overflow: hidden !important;
+}
+
+#projectThumbs .project .intrinsic {
+  position: relative !important;
+  padding-bottom: 100% !important;
+  overflow: hidden !important;
+  line-height: 0 !important;
+  text-align: center !important;
+}
+
+/* ENHANCED UNIVERSAL IMAGE SCALING - Perfect proportions at all sizes */
+#projectThumbs .project .content-fill img,
+#projectThumbs .project img.project-image-responsive {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+  max-width: none !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  transition: transform 0.3s ease !important;
+  -webkit-transition: transform 0.3s ease !important;
+  -moz-transition: transform 0.3s ease !important;
+}
+
+/* Hover effect for better user interaction */
+#projectThumbs .project:hover .content-fill img,
+#projectThumbs .project:hover img.project-image-responsive {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+}
+
+/* Ensure containers maintain perfect aspect ratio */
+#projectThumbs .project .intrinsic {
+  position: relative !important;
+  padding-bottom: 100% !important; /* Perfect square ratio */
+  overflow: hidden !important;
+  line-height: 0 !important;
+  text-align: center !important;
+  background-color: #f5f5f5 !important; /* Fallback background */
+}
+
+#projectThumbs .project .content-fill {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  overflow: hidden !important;
+  border-radius: 4px !important; /* Subtle rounded corners */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Additional centering support for older browsers */
+#projectThumbs .project .content-fill::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: transparent !important;
+}
+
+/* Section heading styles */
+.section-heading {
+  margin-left: 30px;
+  color: black;
+}
+
+/* Profile image styles */
+.profile-image {
+  margin-left: 20px;
+}
+
+/* Remove fixed margin that causes horizontal overflow */
+@media (max-width: 767px) {
+  .main-content-section {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+  
+  /* Reduce margins for headings on mobile */
+  .section-heading {
+    margin-left: 10px !important;
+  }
+  
+  /* Center profile image on mobile */
+  .profile-image {
+    margin-left: 0 !important;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Better mobile project grid layout - 2 columns */
+  #projectThumbs .project {
+    width: calc(50% - 1%) !important;
+    margin: 0.5% !important;
+  }
+  
+  #projectThumbs .project:nth-child(2n+1) {
+    clear: left !important;
+  }
+  
+  #projectThumbs .project:nth-child(3n+1),
+  #projectThumbs .project:nth-child(4n+1) {
+    clear: none !important;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  #page[role="main"] {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+  
+  /* Single column layout for very small screens */
+  #projectThumbs .project {
+    width: calc(100% - 1%) !important;
+    margin: 0.5% !important;
+    float: none !important;
+    clear: both !important;
+  }
+  
+  #projectThumbs .project:nth-child(2n+1),
+  #projectThumbs .project:nth-child(3n+1),
+  #projectThumbs .project:nth-child(4n+1) {
+    clear: both !important;
+  }
+}
+
+/* UNIVERSAL RESPONSIVE GRID - Works on ALL platforms and devices */
+
+/* Default: Large desktop - 4 columns */
+#projectThumbs .project {
+  width: calc(25% - 1%) !important;
+  margin: 0.5% !important;
+}
+
+#projectThumbs .project:nth-child(4n+1) {
+  clear: left !important;
+}
+
+/* Reset other nth-child rules by default */
+#projectThumbs .project:nth-child(2n+1),
+#projectThumbs .project:nth-child(3n+1) {
+  clear: none !important;
+}
+
+/* Large desktop - 4 columns (explicit) */
+@media (min-width: 1200px) {
+  #projectThumbs .project {
+    width: calc(25% - 1%) !important;
+    margin: 0.5% !important;
+  }
+  
+  #projectThumbs .project:nth-child(4n+1) {
+    clear: left !important;
+  }
+  
+  #projectThumbs .project:nth-child(2n+1),
+  #projectThumbs .project:nth-child(3n+1) {
+    clear: none !important;
+  }
+}
+
+/* Medium desktop - 3 columns */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #projectThumbs .project {
+    width: calc(33.333% - 1%) !important;
+    margin: 0.5% !important;
+  }
+  
+  #projectThumbs .project:nth-child(3n+1) {
+    clear: left !important;
+  }
+  
+  #projectThumbs .project:nth-child(2n+1),
+  #projectThumbs .project:nth-child(4n+1) {
+    clear: none !important;
+  }
+}
+
+/* Tablet - 3 columns */
+@media (min-width: 768px) and (max-width: 991px) {
+  #projectThumbs .project {
+    width: calc(33.333% - 1%) !important;
+    margin: 0.5% !important;
+  }
+  
+  #projectThumbs .project:nth-child(3n+1) {
+    clear: left !important;
+  }
+  
+  #projectThumbs .project:nth-child(2n+1),
+  #projectThumbs .project:nth-child(4n+1) {
+    clear: none !important;
+  }
+}
+
+/* Small desktop/large tablet - 2 columns when window is minimized */
+@media (min-width: 576px) and (max-width: 767px) {
+  #projectThumbs .project {
+    width: calc(50% - 1%) !important;
+    margin: 0.5% !important;
+  }
+  
+  #projectThumbs .project:nth-child(2n+1) {
+    clear: left !important;
+  }
+  
+  #projectThumbs .project:nth-child(3n+1),
+  #projectThumbs .project:nth-child(4n+1) {
+    clear: none !important;
+  }
+  
+  /* Extra spacing to prevent overlap in this critical size range */
+  .header-section {
+    margin-top: 130px !important;
+  }
+  
+  .header-section:empty,
+  .header-section h3:empty {
+    margin-top: 150px !important;
+  }
+  
+  #projectThumbs {
+    margin-top: 40px !important;
+  }
+}
+
+/* Fix navbar avatar positioning and overlap issues */
+
+/* Universal navbar and avatar fixes for all screen sizes */
+.navbar-custom {
+  z-index: 1040 !important; /* Bootstrap navbar z-index */
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  transition: all 0.5s ease-in-out !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Ensure navbar collapse works properly */
+.navbar-custom .navbar-collapse {
+  flex-grow: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important; /* Push navigation to right */
+}
+
+/* Ensure navbar height is correct in both states */
+.navbar-custom.top-nav-short {
+  min-height: 50px !important; /* Shorter navbar when scrolled */
+}
+
+.navbar-custom:not(.top-nav-short) {
+  min-height: 70px !important; /* Taller navbar with avatar */
+}
+
+/* Fix navigation menu positioning in both states */
+.navbar-custom .navbar-nav {
+  align-items: center !important;
+  flex-direction: row !important; /* Ensure horizontal layout */
+  margin-left: auto !important; /* Push to right side */
+}
+
+.navbar-custom .navbar-nav .nav-item {
+  display: inline-block !important; /* Horizontal nav items */
+  margin-left: 1rem !important; /* Spacing between items */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  display: inline-block !important;
+  padding: 0.5rem 1rem !important;
+  white-space: nowrap !important;
+}
+
+.navbar-custom.top-nav-short .navbar-nav {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.navbar-custom:not(.top-nav-short) .navbar-nav {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.navbar-custom .avatar-container {
+  z-index: 1050 !important; /* Higher than navbar z-index */
+  position: absolute !important;
+  left: 50% !important; /* Always center horizontally */
+  top: 50% !important; /* Always center vertically */
+  transform: translate(-50%, -50%) !important; /* Perfect centering at all times */
+  width: 3.125rem !important; /* 50px */
+  height: 3.125rem !important; /* 50px */
+  margin: 0 !important; /* Remove any margins */
+  padding: 0 !important; /* Remove any padding */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+  -webkit-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+  -moz-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+  /* Ensure centering works at all screen sizes */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  /* Ensure it's visible by default */
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure scroll functionality works - COMPLETELY hide avatar when scrolled */
+.navbar-custom.top-nav-short .avatar-container,
+.navbar.top-nav-short .avatar-container,
+.top-nav-short .avatar-container {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(-50%, -50%) scale(0) !important; /* Scale to 0 instead of display:none for better animation */
+  transition: visibility linear 0.3s, opacity 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+  -webkit-transition: visibility linear 0.3s, opacity 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+  -moz-transition: visibility linear 0.3s, opacity 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+  pointer-events: none !important; /* Prevent interaction when hidden */
+}
+
+/* Force avatar centering at ALL screen sizes */
+@media (max-width: 1200px) {
+  .navbar-custom .avatar-container {
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-custom .avatar-container {
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-custom .avatar-container {
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-custom .avatar-container {
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+/* Override any conflicting styles from original CSS */
+.navbar-custom .avatar-container {
+  margin-top: 0 !important; /* Override original margin-top: 1.75rem */
+  /* Force positioning to override main.css */
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Ensure avatar border and image are also centered */
+.navbar-custom .avatar-container .avatar-img-border {
+  margin-left: 0 !important; /* Override original margin-left: -50% */
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8) !important;
+  -webkit-box-shadow: 0 0 0.3125rem rgba(0, 0, 0, .8) !important;
+  -moz-box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8) !important;
+}
+
+.navbar-custom .avatar-container .avatar-img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Hide avatar when mobile menu is expanded */
+.navbar-custom.top-nav-expanded .avatar-container {
+  display: none !important;
+}
+
+.navbar-custom .avatar-container .avatar-img-border {
+  z-index: 1051 !important;
+}
+
+.navbar-custom .avatar-container .avatar-img {
+  z-index: 1052 !important;
+}
+
+/* RESPONSIVE SPACING - Prevent navbar overlap at all screen sizes */
+
+/* Default desktop spacing - accounts for scroll behavior */
+.header-section {
+  margin-top: 90px !important; /* Space for full navbar with avatar */
+  min-height: 40px !important; /* Ensure minimum height even if empty */
+  transition: margin-top 0.5s ease !important; /* Smooth transition when navbar changes */
+}
+
+/* Adjust spacing when navbar is shortened (after scroll) */
+.navbar-custom.top-nav-short ~ .header-section,
+.navbar-custom.top-nav-short ~ * .header-section,
+.top-nav-short ~ .header-section,
+body .navbar.top-nav-short ~ .header-section {
+  margin-top: 60px !important; /* Less space needed when avatar is hidden and navbar is shorter */
+}
+
+#projectThumbs {
+  margin-top: 30px !important; /* Additional spacing from header */
+  position: relative !important;
+  z-index: 1 !important; /* Lower than avatar */
+}
+
+/* Special handling for pages with minimal/empty headers */
+.header-section:empty,
+.header-section h3:empty {
+  margin-top: 140px !important; /* Even more space when header is empty */
+}
+
+/* Ensure main content sections have proper top spacing */
+section[role="main"] {
+  padding-top: 30px !important;
+}
+
+/* Large desktop spacing */
+@media (min-width: 1200px) {
+  .header-section {
+    margin-top: 100px !important;
+  }
+  
+  .header-section:empty,
+  .header-section h3:empty {
+    margin-top: 120px !important;
+  }
+}
+
+/* Medium desktop - when window is minimized */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .header-section {
+    margin-top: 130px !important; /* More space for minimized window */
+  }
+  
+  .header-section:empty,
+  .header-section h3:empty {
+    margin-top: 150px !important;
+  }
+  
+  #projectThumbs {
+    margin-top: 40px !important;
+  }
+}
+
+/* Tablet and small desktop - critical overlap zone */
+@media (min-width: 768px) and (max-width: 991px) {
+  .header-section {
+    margin-top: 140px !important; /* Maximum space needed */
+  }
+  
+  .header-section:empty,
+  .header-section h3:empty {
+    margin-top: 160px !important;
+  }
+  
+  #projectThumbs {
+    margin-top: 50px !important;
+  }
+  
+  section[role="main"] {
+    padding-top: 40px !important;
+  }
+}
+
+/* NAVBAR TOGGLE FUNCTIONALITY FIX */
+
+/* Override Bootstrap's navbar-expand-md to show toggler when window is minimized */
+/* This ensures the navbar toggle appears when browser window is small, regardless of device */
+
+/* Hide navbar-toggler on large screens (768px and above) */
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-toggler {
+    display: none !important; /* Hide toggler on desktop */
+  }
+  
+  .navbar-expand-md .navbar-collapse {
+    display: flex !important; /* Always show menu items on desktop */
+    flex-basis: auto !important;
+    position: static !important; /* Reset position for desktop */
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  
+  .navbar-expand-md .navbar-nav {
+    flex-direction: row !important; /* Horizontal layout on desktop */
+    margin-left: auto !important; /* Restore ml-auto behavior */
+  }
+  
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding: 1rem 0.9375rem !important; /* Desktop padding */
+    border-bottom: none !important;
+    text-align: center !important;
+  }
+}
+
+/* Show navbar-toggler when screen/window is smaller than 768px */
+@media (max-width: 767px) {
+  .navbar-expand-md .navbar-toggler {
+    display: block !important; /* Force show toggler */
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 0.25rem 0.5rem !important;
+    background-color: transparent !important;
+    border-radius: 0.25rem !important;
+    position: relative !important;
+    z-index: 1051 !important;
+  }
+  
+  /* Ensure toggle icon is visible on mobile */
+  .navbar-expand-md .navbar-toggler .navbar-toggler-icon {
+    display: block !important;
+    width: 24px !important;
+    height: 24px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Default state - collapsed menu */
+  .navbar-expand-md .navbar-collapse {
+    display: none !important; /* Hide menu by default */
+    flex-basis: 100% !important;
+    flex-grow: 1 !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background-color: #F5F5F5 !important;
+    border-top: 1px solid #EAEAEA !important;
+    padding: 0.5rem 0 !important;
+    z-index: 1050 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* Expanded state - show menu */
+  .navbar-expand-md .navbar-collapse.show {
+    display: block !important; /* Show as block to allow proper list expansion */
+  }
+  
+  /* Navigation list styling */
+  .navbar-expand-md .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important; /* Stack menu items vertically */
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+    list-style: none !important;
+    width: 100% !important;
+    margin-left: 0 !important; /* Override ml-auto */
+    margin-right: 0 !important;
+  }
+  
+  /* Individual menu items */
+  .navbar-expand-md .navbar-nav .nav-item {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Menu links styling */
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding: 0.75rem 1rem !important; /* Better touch targets */
+    display: block !important;
+    color: #404040 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    text-align: left !important;
+    width: 100% !important;
+    text-decoration: none !important;
+  }
+  
+  /* Last item - remove border */
+  .navbar-expand-md .navbar-nav .nav-item:last-child .nav-link {
+    border-bottom: none !important;
+  }
+  
+  /* Hover effects */
+  .navbar-expand-md .navbar-nav .nav-link:hover,
+  .navbar-expand-md .navbar-nav .nav-link:focus {
+    background-color: rgba(0,0,0,0.05) !important;
+    color: #0085A1 !important;
+  }
+}
+
+/* Ensure toggler icon is visible */
+.navbar-toggler {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  padding: 0.25rem 0.5rem !important;
+  background-color: transparent !important;
+  border-radius: 0.25rem !important;
+  cursor: pointer !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  outline: none !important;
+}
+
+.navbar-toggler-icon {
+  display: inline-block !important;
+  width: 1.5em !important;
+  height: 1.5em !important;
+  vertical-align: middle !important;
+  content: "" !important;
+  background: no-repeat center center !important;
+  background-size: 100% 100% !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Additional fallback for navbar-toggler-icon - ensure it's always visible */
+.navbar-toggler .navbar-toggler-icon {
+  display: block !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Fallback hamburger icon using CSS if SVG fails */
+.navbar-toggler-icon::before {
+  content: "" !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: linear-gradient(to bottom, 
+    transparent 0%, transparent 20%, 
+    rgba(33, 37, 41, 0.75) 20%, rgba(33, 37, 41, 0.75) 30%, 
+    transparent 30%, transparent 45%, 
+    rgba(33, 37, 41, 0.75) 45%, rgba(33, 37, 41, 0.75) 55%, 
+    transparent 55%, transparent 70%, 
+    rgba(33, 37, 41, 0.75) 70%, rgba(33, 37, 41, 0.75) 80%, 
+    transparent 80%, transparent 100%) !important;
+}
+
+/* Override Bootstrap's default collapse behavior for mobile */
+@media (max-width: 767px) {
+  .navbar-expand-md .collapse:not(.show) {
+    display: none !important;
+  }
+  
+  .navbar-expand-md .collapse.show {
+    display: block !important;
+  }
+  
+  .navbar-expand-md .collapsing {
+    display: none !important; /* Disable Bootstrap's collapsing animation which can interfere */
+  }
+}
+
+/* Make sure navbar collapse works properly with custom avatar */
+.navbar-custom.top-nav-expanded .navbar-collapse {
+  display: block !important;
+}
+
+/* Hide avatar when mobile menu is expanded */
+.navbar-custom.top-nav-expanded .avatar-container {
+  display: none !important;
+}
+
+/* Fix navbar avatar positioning on mobile - keep it centered */
+@media (max-width: 767px) {
+  .navbar-custom .avatar-container {
+    position: absolute !important; /* Keep absolute positioning for centering */
+    left: 50% !important; /* Always center horizontally */
+    top: 50% !important; /* Always center vertically */
+    transform: translate(-50%, -50%) !important; /* Perfect centering */
+    width: 3.125rem !important; /* Consistent size */
+    height: 3.125rem !important; /* Consistent size */
+    margin: 0 !important; /* No margins */
+    z-index: 1050 !important;
+  }
+  
+  .header-section {
+    margin-top: 100px !important; /* Increased space for mobile */
+  }
+  
+  .header-section:empty,
+  .header-section h3:empty {
+    margin-top: 120px !important;
+  }
+  
+  #projectThumbs {
+    margin-top: 30px !important;
+  }
+  
+  section[role="main"] {
+    padding-top: 20px !important;
+  }
+}
+
+/* Extra spacing for very small screens */
+@media (max-width: 576px) {
+  .header-section {
+    margin-top: 110px !important;
+  }
+  
+  .header-section:empty,
+  .header-section h3:empty {
+    margin-top: 130px !important;
+  }
+}
+
+/* Ensure proper viewport scaling */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Prevent horizontal scrolling */
+body {
+  overflow-x: hidden;
+}
+
+/* Make sure all images are responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 767px) {
+  .project {
+    min-height: 44px; /* Apple's recommended minimum touch target */
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 12px 16px !important; /* Better touch targets */
+  }
+  
+  /* Improve text readability on mobile */
+  body {
+    font-size: 16px; /* Prevents zoom on iOS */
+    line-height: 1.5;
+  }
+  
+  /* Better spacing for mobile footer */
+  footer {
+    padding: 20px 10px !important;
+  }
+  
+  footer .copyright {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Better mobile navigation */
+  .navbar-toggler {
+    border: none;
+    padding: 8px 12px;
+  }
+  
+  /* Improve mobile video player sizing */
+  .jwplayer {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Better mobile list styling */
+  ul {
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+}
+
+/* Remove CSS for project-item-count since it's been removed from HTML */
+.project-item-count {
+  display: none !important;
+}
+
+/* Ensure JavaScript scroll functionality works properly */
+body {
+  padding-top: 0 !important; /* Remove any conflicting padding */
+}
+
+/* Debug: Ensure scroll detection works */
+.navbar-custom {
+  transition: all 0.3s ease !important;
+}
+
+.navbar-custom.top-nav-short,
+.navbar.top-nav-short,
+.top-nav-short {
+  /* Visual indicator that scroll is working */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  background-color: rgba(248, 249, 250, 0.95) !important; /* Slightly different background */
+  backdrop-filter: blur(10px) !important; /* Blur effect for modern browsers */
+}
+
+/* Visual feedback when scrolled - subtle effect */
+.navbar-custom.top-nav-short {
+  /* Clean scrolled state without debug text */
+}
