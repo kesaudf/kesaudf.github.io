@@ -1001,3 +1001,23 @@ body {
 .navbar-custom.top-nav-short {
   /* Clean scrolled state without debug text */
 }
+
+/* Prevent nav overlapping avatar center and improve right-edge spacing on desktop */
+@media (min-width: 768px) {
+  /* Keep the collapsible nav confined to the right half so it never crosses center */
+  .navbar-custom .navbar-collapse {
+    max-width: calc(50% - 16px) !important; /* reserve center area for avatar */
+    margin-left: auto !important;
+  }
+
+  /* Restore right padding on the last item so it's not flush to the edge */
+  .navbar-expand-md .navbar-nav .nav-item:last-child .nav-link {
+    padding-right: 0.9375rem !important;
+  }
+
+  /* Ensure some horizontal padding on the navbar itself */
+  .navbar-custom {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
