@@ -1006,18 +1006,20 @@ body {
 @media (min-width: 768px) {
   /* Keep the collapsible nav confined to the right half so it never crosses center */
   .navbar-custom .navbar-collapse {
-    max-width: calc(50% - 16px) !important; /* reserve center area for avatar */
+    /* Reserve extra space for avatar (50px) + generous gutter (90px) = 140px */
+    max-width: calc(50% - 140px) !important;
     margin-left: auto !important;
+    padding-left: 2rem !important; /* extra left padding so first item is not near center */
   }
 
   /* Restore right padding on the last item so it's not flush to the edge */
   .navbar-expand-md .navbar-nav .nav-item:last-child .nav-link {
-    padding-right: 0.9375rem !important;
+    padding-right: 1.25rem !important;
   }
 
   /* Ensure some horizontal padding on the navbar itself */
   .navbar-custom {
     padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-right: 1.5rem !important; /* add a bit more right breathing room */
   }
 }
