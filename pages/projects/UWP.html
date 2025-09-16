@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en"><head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -34,53 +34,8 @@
 </head>
 
   <body>
-
-
-
-      <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-custom">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="main-navbar">
-
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../../index.html">Works</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../News.html">News</a>
-                </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="../../pages/about/AboutMe.html">About Me</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="../../pages/about/Contacts.html">Contacts</a>
-                  </li>
-              </ul>
-          </div>
-          <div class="avatar-container">
-              <div class="avatar-img-border">
-                      <img alt="Navbar avatar" class="avatar-img" src="../../assets/images/badge.jpg" >
-              </div>
-          </div>
-      </nav>
-      <header class="header-section ">
-
-      <div class="intro-header no-img">
-        <div class="container-md">
-          <div class="row">
-            <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-              <div class="page-heading">
-                <h2>UWP</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </header>
-
-
+     <!-- Header Component -->
+     <div id="header-component" data-component="header"></div>
 
       <section id="page" role="main" data-content-field="main-content">
         <div id="projectThumbs">
@@ -100,7 +55,7 @@
                                   <div id="UWPConverter">Loading player...</div>
                                   <script type="text/javascript">
                                       jwplayer("UWPConverter").setup({
-                                          file: "assets/videos/UWPConverter.mp4",
+                                          file: "../../assets/videos/UWPConverter.mp4",
                                           width: 400,
                                           height: 240,
                                           title: "Demo-version for converter"
@@ -122,35 +77,17 @@
         </div>
       </section>
 
-    <footer>
-  <div class="container-md beautiful-jekyll-footer">
-    <div class="row">
-      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-          <p class="copyright text-muted">
-
-              AZ
-              &nbsp;•&nbsp;
-
-              2021
-
-
-              &nbsp;•&nbsp;
-              <a href="../../index.html" target="_blank">kesaudf.github.io</a>
-              &nbsp;•&nbsp;
-              <a href="mailto:alexapperwelt@mail.com">e-mail</a>
-              &nbsp;•&nbsp;
-              <a href="https://t.me/AlexApperwelt" target="_blank">telegram</a>
-
-
-
-          </p>
-      </div>
-    </div>
-  </div>
-</footer>
+        <!-- Footer Component -->
+    <div id="footer-component" data-component="footer"></div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 <script src="../../assets/js/main.js"></script>
 
+<!-- Component Loader Script (load after other scripts) -->
+<script src="../../assets/js/component-loader.js"></script>
+
 </body></html>
+
+
+

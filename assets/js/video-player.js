@@ -2,8 +2,32 @@
  * Modern Video Player Initialization using Video.js
  * Lightweight replacement for JW Player with excellent fullscreen support
  * Author: AZ
- * Version: 2.0
+ * Version: 2.1 - Added JWPlayer compatibility
  */
+
+/**
+ * JWPlayer compatibility function
+ * @param {string} containerId - The ID of the container element
+ * @returns {Object} - Object with setup method for JWPlayer compatibility
+ */
+function jwplayer(containerId) {
+    return {
+        setup: function(options) {
+            // Fix relative paths for project pages
+            if (options.file && !options.file.startsWith('http') && !options.file.startsWith('/')) {
+                const currentPath = window.location.pathname;
+                if (currentPath.includes('/pages/projects/') || currentPath.includes('/pages/about/')) {
+                    if (!options.file.startsWith('../../')) {
+                        options.file = '../../' + options.file;
+                    }
+                }
+            }
+            
+            // Call the actual video player setup
+            setTimeout(() => setupVideoPlayer(containerId, options), 100);
+        }
+    };
+}
 
 /**
  * Function to setup a video player (replacement for jwplayer().setup())
@@ -16,6 +40,8 @@ function setupVideoPlayer(containerId, options) {
         console.error('Video container not found:', containerId);
         return;
     }
+    
+    console.log('Setting up video player for:', containerId, 'with file:', options.file);
 
     // Create video element with Video.js classes
     const videoElement = document.createElement('video-js');
