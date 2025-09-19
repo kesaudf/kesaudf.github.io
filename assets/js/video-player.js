@@ -6,27 +6,66 @@
  */
 
 /**
- * JWPlayer compatibility function
+ * JWPlayer compatibility function with lazy loading support
  * @param {string} containerId - The ID of the container element
  * @returns {Object} - Object with setup method for JWPlayer compatibility
  */
 function jwplayer(containerId) {
     return {
         setup: function(options) {
-            // Fix relative paths for project pages
-            if (options.file && !options.file.startsWith('http') && !options.file.startsWith('/')) {
-                const currentPath = window.location.pathname;
-                if (currentPath.includes('/pages/projects/') || currentPath.includes('/pages/about/')) {
-                    if (!options.file.startsWith('../../')) {
-                        options.file = '../../' + options.file;
+            // Check if lazy loading is enabled and if the container is inside a closed <details> element
+            const container = document.getElementById(containerId);
+            if (container) {
+                const detailsParent = container.closest('details');
+                
+                // If inside a closed <details> element, defer loading
+                if (detailsParent && !detailsParent.open) {
+                    // Store the setup options for later use
+                    container.setAttribute('data-lazy-video-options', JSON.stringify(options));
+                    container.innerHTML = 'Video will load when expanded...';
+                    
+                    // Set up the listener if not already set
+                    if (!detailsParent.hasAttribute('data-lazy-listener')) {
+                        detailsParent.setAttribute('data-lazy-listener', 'true');
+                        detailsParent.addEventListener('toggle', function() {
+                            if (this.open) {
+                                const lazyContainers = this.querySelectorAll('[data-lazy-video-options]');
+                                lazyContainers.forEach(lazyContainer => {
+                                    console.log('Loading lazy video player:', lazyContainer.id);
+                                    lazyContainer.innerHTML = 'Loading player...';
+                                    const lazyOptions = JSON.parse(lazyContainer.getAttribute('data-lazy-video-options'));
+                                    lazyContainer.removeAttribute('data-lazy-video-options');
+                                    setupVideoPlayerImmediate(lazyContainer.id, lazyOptions);
+                                });
+                            }
+                        });
                     }
+                    return;
                 }
             }
             
-            // Call the actual video player setup
-            setTimeout(() => setupVideoPlayer(containerId, options), 100);
+            // Immediate setup for containers not in closed <details> elements
+            setupVideoPlayerImmediate(containerId, options);
         }
     };
+}
+
+/**
+ * Immediate video player setup (extracted from original logic)
+ */
+function setupVideoPlayerImmediate(containerId, options) {
+    // Fix relative paths for project pages
+    if (options.file && !options.file.startsWith('http') && !options.file.startsWith('/')) {
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/pages/projects/') || currentPath.includes('/pages/about/')) {
+            if (!options.file.startsWith('../../')) {
+                options.file = '../../' + options.file;
+            }
+        }
+    }
+    
+    // Call the actual video player setup
+    setTimeout(() => setupVideoPlayer(containerId, options), 100);
 }
 
 /**
@@ -42,9 +81,18 @@ function setupVideoPlayer(containerId, options) {
     }
     
     console.log('Setting up video player for:', containerId, 'with file:', options.file);
+    
+    // Check if Video.js is available, wait if not
+    if (typeof videojs === 'undefined') {
+        console.log('Video.js not ready yet for:', containerId, '- waiting...');
+        container.innerHTML = 'Loading Video.js library...';
+        setTimeout(() => setupVideoPlayer(containerId, options), 200);
+        return;
+    }
 
     // Create video element with Video.js classes
-    const videoElement = document.createElement('video-js');
+    const videoElement = document.createElement('video');
+    videoElement.id = containerId + '_video';
     videoElement.className = 'video-js vjs-default-skin';
     videoElement.setAttribute('controls', '');
     videoElement.setAttribute('preload', 'auto');
@@ -88,12 +136,8 @@ function setupVideoPlayer(containerId, options) {
         container.appendChild(titleElement);
     }
     
-    // Wait for Video.js to be available, then initialize
+    // Initialize Video.js player immediately (we already checked videojs is available)
     const initializePlayer = () => {
-        if (typeof videojs === 'undefined') {
-            setTimeout(initializePlayer, 100);
-            return;
-        }
         
         // Video.js configuration with enhanced fullscreen support
         const vjsConfig = {
@@ -114,7 +158,16 @@ function setupVideoPlayer(containerId, options) {
         };
         
         // Initialize Video.js player
-        const player = videojs(videoElement, vjsConfig);
+        console.log('Initializing Video.js player for:', containerId);
+        let player;
+        try {
+            player = videojs(videoElement.id, vjsConfig);
+            console.log('Video.js player initialized successfully for:', containerId);
+        } catch (error) {
+            console.error('Error initializing Video.js player for:', containerId, error);
+            container.innerHTML = `<div style="color: red;">Error loading video player: ${error.message}</div>`;
+            return;
+        }
         
         // Enhanced fullscreen handling
         player.ready(() => {
@@ -162,14 +215,7 @@ function setupVideoPlayer(containerId, options) {
     return initializePlayer();
 }
 
-// Compatibility function for existing jwplayer calls
-function jwplayer(containerId) {
-    return {
-        setup: function(options) {
-            return setupVideoPlayer(containerId, options);
-        }
-    };
-}
+// Note: jwplayer function is defined above with lazy loading support
 
 // Make jwplayer function available globally for backward compatibility
 window.jwplayer = jwplayer;

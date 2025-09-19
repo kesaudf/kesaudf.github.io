@@ -28,7 +28,7 @@ Contains the standardized footer structure with scripts. This is also a template
 
 **Placeholders:**
 
-- `{MAIN_JS_PATH}` - Path to main.js
+- `{MODERN_APP_PATH}` - Path to modern App.js module
 - `{ADDITIONAL_SCRIPTS}` - Any additional scripts
 
 ## Current Implementation
