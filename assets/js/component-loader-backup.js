@@ -81,35 +81,64 @@
     
     function getFallbackTemplate(componentName) {
         const templates = {
-            header: `<nav class="navbar navbar-expand-md navbar-light fixed-top navbar-custom">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+            header: `<!-- Modern Navigation Header -->
+<nav class="modern-navbar" role="navigation" aria-label="Main Navigation">
+    <div class="navbar-container">
+        <!-- Brand/Logo Section -->
+        <div class="navbar-brand">
+            <div class="brand-avatar">
+                <img alt="AZ - Profile Avatar" class="avatar-image" src="{AVATAR_PATH}">
+            </div>
+            <div class="brand-text">
+                <span class="brand-name">AZ</span>
+                <span class="brand-tagline">Developer & Designer</span>
+            </div>
+        </div>
 
-    <div class="collapse navbar-collapse" id="main-navbar">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{WORKS_LINK}">Works</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{NEWS_LINK}">News</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{ABOUT_LINK}">About Me</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{CONTACTS_LINK}">Contacts</a>
-            </li>
-        </ul>
-    </div>
-    <div class="avatar-container">
-        <div class="avatar-img-border">
-            <img alt="Navbar avatar" class="avatar-img" src="{AVATAR_PATH}">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <div class="navbar-menu" id="main-navigation">
+            <ul class="nav-links" role="list">
+                <li class="nav-item" role="listitem">
+                    <a class="nav-link" href="{WORKS_LINK}" aria-label="View my portfolio works">
+                        <span class="nav-icon">💼</span>
+                        <span class="nav-text">Works</span>
+                    </a>
+                </li>
+                <li class="nav-item" role="listitem">
+                    <a class="nav-link" href="{NEWS_LINK}" aria-label="Read latest news and updates">
+                        <span class="nav-icon">📰</span>
+                        <span class="nav-text">News</span>
+                    </a>
+                </li>
+                <li class="nav-item" role="listitem">
+                    <a class="nav-link" href="{ABOUT_LINK}" aria-label="Learn more about me">
+                        <span class="nav-icon">👨‍💻</span>
+                        <span class="nav-text">About</span>
+                    </a>
+                </li>
+                <li class="nav-item" role="listitem">
+                    <a class="nav-link nav-link-cta" href="{CONTACTS_LINK}" aria-label="Get in touch with me">
+                        <span class="nav-icon">📧</span>
+                        <span class="nav-text">Contact</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
-<header class="header-section{HEADER_CLASSES}">
-    {HEADER_CONTENT}
+
+<!-- Modern Header Section -->
+<header class="modern-header{HEADER_CLASSES}" role="banner">
+    <div class="header-content-wrapper">
+        {HEADER_CONTENT}
+    </div>
 </header>`,
             footer: `<footer>
     <div class="container-md beautiful-jekyll-footer">
@@ -136,31 +165,54 @@
     }
     
     function setupNavbar() {
-        // Simple navbar toggle functionality
+        // Modern navbar toggle functionality
         setTimeout(() => {
-            const toggler = document.querySelector('.navbar-toggler');
-            const collapse = document.querySelector('.navbar-collapse');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navbarMenu = document.querySelector('.navbar-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
             
-            if (toggler && collapse) {
-                console.log('Backup Component Loader: Setting up navbar toggle');
+            if (mobileToggle && navbarMenu) {
+                console.log('Backup Component Loader: Setting up modern navbar toggle');
                 
-                toggler.addEventListener('click', function(e) {
+                mobileToggle.addEventListener('click', function(e) {
                     e.preventDefault();
-                    collapse.classList.toggle('show');
+                    const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
                     
-                    const expanded = collapse.classList.contains('show');
-                    toggler.setAttribute('aria-expanded', expanded);
+                    mobileToggle.setAttribute('aria-expanded', !isExpanded);
+                    navbarMenu.classList.toggle('active');
+                    
+                    // Prevent body scroll when menu is open
+                    document.body.style.overflow = !isExpanded ? 'hidden' : '';
                 });
                 
                 // Close menu when clicking on links (mobile)
-                const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
                 navLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         if (window.innerWidth < 768) {
-                            collapse.classList.remove('show');
-                            toggler.setAttribute('aria-expanded', 'false');
+                            mobileToggle.setAttribute('aria-expanded', 'false');
+                            navbarMenu.classList.remove('active');
+                            document.body.style.overflow = '';
                         }
                     });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', (event) => {
+                    const navbar = document.querySelector('.modern-navbar');
+                    if (navbar && !navbar.contains(event.target) && navbarMenu.classList.contains('active')) {
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                        navbarMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Handle resize events
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) {
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                        navbarMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 });
             }
         }, 100);
